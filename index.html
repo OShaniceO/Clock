@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>City Time Alert</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <h1>Select a City</h1>
@@ -17,18 +16,16 @@
       <option value="Australia/Sydney">Sydney 🇦🇺</option>
     </select>
 
-    <script>
-      document
-        .getElementById("citySelect")
-        .addEventListener("change", function () {
-          const city = this.value;
-          if (city) {
-            const currentTime = moment()
-              .tz(city)
-              .format("dddd, MMMM D, YYYY h:mm A");
-            alert(`It is ${currentTime} in ${city}`);
-          }
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js"></script>
+    <script src="script.js"></script>
+
+    <footer>
+      This project is coded by Shanice Jones and hosted on
+      <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank"
+        >Netlify</a
+      >. View the code on
+      <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a>.
+    </footer>
   </body>
 </html>
