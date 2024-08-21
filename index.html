@@ -8,24 +8,40 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Select a City</h1>
-    <select id="citySelect">
-      <option value="">--Select a City--</option>
-      <option value="Europe/Paris">Paris 🇫🇷</option>
-      <option value="Asia/Tokyo">Tokyo 🇯🇵</option>
-      <option value="Australia/Sydney">Sydney 🇦🇺</option>
-    </select>
+    <header class="header">
+      <h1 class="title">City Time Alert</h1>
+    </header>
+
+    <main class="main-content">
+      <section class="city-selection">
+        <h2>Select a City</h2>
+        <div class="select-container">
+          <select id="citySelect" class="city-dropdown">
+            <option value="">--Select a City--</option>
+            <option value="Europe/Paris">Paris 🇫🇷</option>
+            <option value="Asia/Tokyo">Tokyo 🇯🇵</option>
+            <option value="Australia/Sydney">Sydney 🇦🇺</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="result-section">
+        <p id="result" class="result-text"></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        This project is coded by Shanice Jones and hosted on
+        <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank"
+          >Netlify</a
+        >. View the code on
+        <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a>.
+      </p>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js"></script>
     <script src="script.js"></script>
-
-    <footer>
-      This project is coded by Shanice Jones and hosted on
-      <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank"
-        >Netlify</a
-      >. View the code on
-      <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a>.
-    </footer>
   </body>
 </html>
