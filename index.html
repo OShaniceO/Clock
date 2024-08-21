@@ -3,45 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>City Time Alert</title>
-
-    <link rel="stylesheet" href="styles.css" />
+    <title>City Clock</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header">
-      <h1 class="title">City Time Alert</h1>
-    </header>
-
-    <main class="main-content">
-      <section class="city-selection">
-        <h2>Select a City</h2>
-        <div class="select-container">
-          <select id="citySelect" class="city-dropdown">
+    <div class="container">
+      <header>
+        <h1>Timezones</h1>
+      </header>
+      <section>
+        <p id="result">Please select a city to view the time.</p>
+      </section>
+      <br />
+      <main>
+        <section class="search-container">
+          <select id="citySelect">
             <option value="">--Select a City--</option>
-            <option value="Europe/Paris">Paris 🇫🇷</option>
-            <option value="Asia/Tokyo">Tokyo 🇯🇵</option>
-            <option value="Australia/Sydney">Sydney 🇦🇺</option>
+            <option value="Europe/Paris">Paris</option>
+            <option value="Asia/Tokyo">Tokyo</option>
+            <option value="Australia/Sydney">Sydney</option>
           </select>
-        </div>
-      </section>
-
-      <section class="result-section">
-        <p id="result" class="result-text"></p>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p>
-        This project is coded by Shanice Jones and hosted on
-        <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank"
-          >Netlify</a
-        >. View the code on
-        <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a>.
-      </p>
-    </footer>
+        </section>
+        <br />
+        <section class="time-display">
+          <div class="city-name" id="cityName">Cape Town:</div>
+            <div class="city-time-date">
+          <div class="city-date" id="cityDate">August 21, 2024</div>
+    
+          <div class="city-time" id="cityTime">12:00 PM UTC+0</div>
+        </section>
+      </main>
+      <br />
+      <footer>
+        <p>
+          Coded by Shanice Jones. Hosted on
+          <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank"
+            >Netlify</a
+          >. Code on
+          <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a
+          >.
+        </p>
+      </footer>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js"></script>
-    <script src="script.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
