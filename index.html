@@ -27,10 +27,10 @@
         <br />
         <section class="time-display">
           <div class="city-name" id="cityName">Cape Town:</div>
-            <div class="city-time-date">
-          <div class="city-date" id="cityDate">August 21, 2024</div>
-    
-          <div class="city-time" id="cityTime">12:00 PM UTC+0</div>
+          <div class="city-time-date">
+            <div class="city-date" id="cityDate">August 21, 2024</div>
+            <div class="city-time" id="cityTime">12:00 PM</div>
+          </div>
         </section>
       </main>
       <br />
@@ -47,7 +47,34 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js"></script>
-    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data.min.js"></script>
+    <script>
+      function updateTime() {
+        let cityTimeZone =
+          document.querySelector("#citySelect").value || "Africa/Johannesburg";
+        let cityTime = moment().tz(cityTimeZone);
+
+        let cityNameElement = document.querySelector("#cityName");
+        let cityDateElement = document.querySelector("#cityDate");
+        let cityTimeElement = document.querySelector("#cityTime");
+
+        let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+        cityNameElement.innerHTML = `${cityName}:`;
+
+        cityDateElement.innerHTML = cityTime.format("MMMM Do YYYY");
+        cityTimeElement.innerHTML = cityTime.format("h:mm:ss A");
+      }
+
+      function updateCity(event) {
+        updateTime();
+      }
+
+      document
+        .querySelector("#citySelect")
+        .addEventListener("change", updateCity);
+
+      updateTime();
+      setInterval(updateTime, 1000);
+    </script>
   </body>
 </html>

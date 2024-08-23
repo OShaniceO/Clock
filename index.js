@@ -1,6 +1,6 @@
 function updateTime() {
   let cityTimeZone =
-    document.querySelector("#citySelect").value || "Africa/Johannesburg";
+    document.querySelector("#citySelect").value || "Africa/Johannesburg"; 
   let cityTime = moment().tz(cityTimeZone);
 
   let cityNameElement = document.querySelector("#cityName");
