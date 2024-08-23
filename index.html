@@ -19,6 +19,7 @@
         <section class="search-container">
           <select id="citySelect">
             <option value="">--Select a City--</option>
+            <option value="current">Current Location</option>
             <option value="Europe/Paris">Paris</option>
             <option value="Asia/Tokyo">Tokyo</option>
             <option value="Australia/Sydney">Sydney</option>
@@ -50,15 +51,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data.min.js"></script>
     <script>
       function updateTime() {
-        let cityTimeZone =
-          document.querySelector("#citySelect").value || "Africa/Johannesburg";
+        let cityTimeZone = document.querySelector("#citySelect").value;
+
+        if (cityTimeZone === "current") {
+          cityTimeZone = moment.tz.guess();
+        } else if (!cityTimeZone) {
+          cityTimeZone = "Africa/Johannesburg";
+        }
+
         let cityTime = moment().tz(cityTimeZone);
 
         let cityNameElement = document.querySelector("#cityName");
         let cityDateElement = document.querySelector("#cityDate");
         let cityTimeElement = document.querySelector("#cityTime");
 
-        let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+        let cityName =
+          cityTimeZone === moment.tz.guess()
+            ? "Your Location"
+            : cityTimeZone.replace("_", " ").split("/")[1];
         cityNameElement.innerHTML = `${cityName}:`;
 
         cityDateElement.innerHTML = cityTime.format("MMMM Do YYYY");
