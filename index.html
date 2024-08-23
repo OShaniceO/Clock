@@ -20,30 +20,46 @@
           <select id="citySelect">
             <option value="">--Select a City--</option>
             <option value="current">Current Location</option>
-            <option value="Europe/Paris">Paris</option>
-            <option value="Asia/Tokyo">Tokyo</option>
+            <option value="America/New_York">New York</option>
+            <option value="Europe/Berlin">Berlin</option>
             <option value="Australia/Sydney">Sydney</option>
           </select>
         </section>
         <br />
         <section class="time-display">
-          <div class="city-name" id="cityName">Cape Town:</div>
+          <div class="city-name" id="cityName1">Cape Town:</div>
           <div class="city-time-date">
-            <div class="city-date" id="cityDate">August 21, 2024</div>
-            <div class="city-time" id="cityTime">12:00 PM</div>
+            <div class="city-date" id="cityDate1">August 21, 2024</div>
+            <div class="city-time" id="cityTime1">12:00 PM</div>
           </div>
         </section>
+        <section class="time-display">
+          <div class="city-name" id="cityName2">Los Angeles:</div>
+          <div class="city-time-date">
+            <div class="city-date" id="cityDate2">August 21, 2024</div>
+            <div class="city-time" id="cityTime2">12:00 PM</div>
+          </div>
+        </section>
+        <section class="time-display">
+          <div class="city-name" id="cityName3">Moscow:</div>
+          <div class="city-time-date">
+            <div class="city-date" id="cityDate3">August 21, 2024</div>
+            <div class="city-time" id="cityTime3">12:00 PM</div>
+          </div>
+        </section>
+        <br />
+        <button id="homeButton">Home</button>
+        <footer>
+ 
       </main>
       <br />
       <footer>
         <p>
           Coded by Shanice Jones. Hosted on
-          <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank"
-            >Netlify</a
-          >. Code on
-          <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a
-          >.
+          <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank">Netlify</a>. Code on
+          <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a>.
         </p>
+        
       </footer>
     </div>
 
@@ -59,20 +75,49 @@
           cityTimeZone = "Africa/Johannesburg";
         }
 
-        let cityTime = moment().tz(cityTimeZone);
+        let cityTimes = [
+          moment().tz(cityTimeZone),
+          moment().tz("America/Los_Angeles"),
+          moment().tz("Europe/Moscow"),
+        ];
 
-        let cityNameElement = document.querySelector("#cityName");
-        let cityDateElement = document.querySelector("#cityDate");
-        let cityTimeElement = document.querySelector("#cityTime");
+        let cityNameElements = [
+          document.querySelector("#cityName1"),
+          document.querySelector("#cityName2"),
+          document.querySelector("#cityName3"),
+        ];
 
-        let cityName =
+        let cityDateElements = [
+          document.querySelector("#cityDate1"),
+          document.querySelector("#cityDate2"),
+          document.querySelector("#cityDate3"),
+        ];
+
+        let cityTimeElements = [
+          document.querySelector("#cityTime1"),
+          document.querySelector("#cityTime2"),
+          document.querySelector("#cityTime3"),
+        ];
+
+        let cityNames = [
           cityTimeZone === moment.tz.guess()
             ? "Your Location"
-            : cityTimeZone.replace("_", " ").split("/")[1];
-        cityNameElement.innerHTML = `${cityName}:`;
+            : cityTimeZone.replace("_", " ").split("/")[1],
+          "Los Angeles",
+          "Moscow",
+        ];
 
-        cityDateElement.innerHTML = cityTime.format("MMMM Do YYYY");
-        cityTimeElement.innerHTML = cityTime.format("h:mm:ss A");
+        cityNameElements.forEach((element, index) => {
+          element.innerHTML = `${cityNames[index]}:`;
+        });
+
+        cityDateElements.forEach((element, index) => {
+          element.innerHTML = cityTimes[index].format("MMMM Do YYYY");
+        });
+
+        cityTimeElements.forEach((element, index) => {
+          element.innerHTML = cityTimes[index].format("h:mm:ss A");
+        });
       }
 
       function updateCity(event) {

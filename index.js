@@ -1,6 +1,6 @@
 function updateTime() {
   let cityTimeZone =
-    document.querySelector("#citySelect").value || "Africa/Johannesburg"; 
+    document.querySelector("#citySelect").value || "Africa/Johannesburg";
   let cityTime = moment().tz(cityTimeZone);
 
   let cityNameElement = document.querySelector("#cityName");
@@ -11,12 +11,15 @@ function updateTime() {
   cityNameElement.innerHTML = `${cityName}:`;
 
   cityDateElement.innerHTML = cityTime.format("MMMM Do YYYY");
-  cityTimeElement.innerHTML = cityTime.format("h:mm:ss A [UTC]Z");
+  cityTimeElement.innerHTML = cityTime.format("h:mm:ss A");
 }
 
 function updateCity(event) {
   updateTime();
 }
+document.getElementById("homeButton").addEventListener("click", function () {
+  window.location.reload();
+});
 
 document.querySelector("#citySelect").addEventListener("change", updateCity);
 
