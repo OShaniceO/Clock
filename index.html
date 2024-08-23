@@ -49,17 +49,17 @@
         </section>
         <br />
         <button id="homeButton">Home</button>
-        <footer>
- 
       </main>
       <br />
       <footer>
         <p>
           Coded by Shanice Jones. Hosted on
-          <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank">Netlify</a>. Code on
-          <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a>.
+          <a href="https://roaring-daifuku-292a48.netlify.app/" target="_blank"
+            >Netlify</a
+          >. Code on
+          <a href="https://github.com/OShaniceO/Clock" target="_blank">GitHub</a
+          >.
         </p>
-        
       </footer>
     </div>
 
@@ -127,6 +127,12 @@
       document
         .querySelector("#citySelect")
         .addEventListener("change", updateCity);
+
+      document
+        .getElementById("homeButton")
+        .addEventListener("click", function () {
+          window.location.reload();
+        });
 
       updateTime();
       setInterval(updateTime, 1000);
